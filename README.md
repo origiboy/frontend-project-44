@@ -5,16 +5,16 @@
 
 ## asciinema
 ### brain-even
-https://asciinema.org/a/KmFSyV1RfvOKt9fiVhBE7hT5Q
+https://asciinema.org/a/ewbsCsIm8I29KdTtIUzl1EaNu
 
 ### brain-calc
-https://asciinema.org/a/bE5fUOSCNeytbGySzcPektSbH
+https://asciinema.org/a/PEPIhLFpFugehYxb7kHGB08KO
 
 ### brain-gcd
-https://asciinema.org/a/ybTKZdlLoVqG1q76215utU2R3
+https://asciinema.org/a/oC4uPV6UT4zJsZP3lHoK8EzgP
 
 ### brain-progression
-https://asciinema.org/a/zkL4Rhdox2i2u9OjwdudyHzYZ
+https://asciinema.org/a/D7NoKelcHHMy9jxMmrp3w8Ep9
 
 ### brain-prime
-https://asciinema.org/a/DpClMRI9KXUwQWXveU4mQGDIt
+https://asciinema.org/a/Th5PI4q1cvXhLTaFpsD4UBCCJ

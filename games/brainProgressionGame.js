@@ -2,9 +2,9 @@ import { gameStart, gameRounds } from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
 
 function brainProgressionGameRounds() {
-  const randomFirstNumber = getRandomNumberBetween(0, 30);
-  const randomDx = getRandomNumberBetween(1, 10);
-  const randomIndex = getRandomNumberBetween(0, 10);
+  const randomFirstNumber = getRandomNumberBetween(1, 30);
+  const randomDx = getRandomNumberBetween(2, 10);
+  const randomIndex = getRandomNumberBetween(0, 9);
   const sequence = [];
   let result = 0;
   for (let i = 0; i < 10; i += 1) {
