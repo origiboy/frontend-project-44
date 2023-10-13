@@ -22,8 +22,11 @@ export function gameRounds(generateRound) {
     } else {
       console.log(`${getAnswerFromUser} is wrong answer ;(. Correct answer was ${answer}.`);
       console.log(`Let's try again, ${userName}!`);
-      correctAnswers = 0;
+      break;
     }
   }
-  console.log(`Congratulations, ${userName}!`);
+
+  if (correctAnswers >= 3) {
+    console.log(`Congratulations, ${userName}!`);
+  }
 }
