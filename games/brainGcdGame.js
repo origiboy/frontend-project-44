@@ -14,7 +14,7 @@ function brainGcdGameRounds() {
   const randomNumberFirst = getRandomNumberBetween(0, 100);
   const randomNumberSecond = getRandomNumberBetween(0, 100);
   const gcdNumber = gcd(randomNumberFirst, randomNumberSecond);
-  return { question: `${randomNumberFirst} ${randomNumberSecond}`, answer: gcdNumber };
+  return { question: `${randomNumberFirst} ${randomNumberSecond}`, answer: gcdNumber.toString() };
 }
 
 export default function brainEvenGame() {
