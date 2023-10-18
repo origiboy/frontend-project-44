@@ -21,7 +21,7 @@ function brainProgressionGameRounds() {
   const result = sequence[randomIndex];
   sequence[randomIndex] = '..';
 
-  return { question: `${sequence.join(' ')}`, answer: result };
+  return { question: `${sequence.join(' ')}`, answer: result.toString() };
 }
 
 export default function brainEvenGame() {
