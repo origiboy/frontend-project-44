@@ -1,18 +1,18 @@
-import { gameStart, gameRounds } from '../src/index.js';
+import game from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
+
+const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
+
+function isEven(number) {
+  if (number % 2 === 0) return true;
+  return false;
+}
 
 function brainEvenGameRounds() {
   const randomNumber = getRandomNumberBetween(0, 200);
-  let result = '';
-  if (randomNumber % 2 === 0) {
-    result = 'yes';
-  } else {
-    result = 'no';
-  }
-  return { question: randomNumber, answer: result };
+  return { question: randomNumber, answer: isEven(randomNumber) ? 'yes' : 'no' };
 }
 
 export default function brainEvenGame() {
-  gameStart('Answer "yes" if the number is even, otherwise answer "no".');
-  gameRounds(brainEvenGameRounds);
+  game(brainEvenGameRounds, rules);
 }

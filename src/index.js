@@ -1,32 +1,27 @@
 import readlineSync from 'readline-sync';
-import sayHello from './cli.js';
 
-let userName = '';
-export function gameStart(rules) {
-  userName = sayHello();
+const roundCount = 3;
+
+export default function game(generateRound, rules) {
+  console.log('Welcome to the Brain Games!');
+  const userName = readlineSync.question('May I have your name? ');
+  console.log(`Hello, ${userName}!`);
   console.log(rules);
-}
-
-export function gameRounds(generateRound) {
-  let correctAnswers = 0;
-  while (correctAnswers < 3) {
+  let allRightAnswers = true;
+  for (let i = 0; i < roundCount; i += 1) {
     const { question, answer } = generateRound();
     console.log(`Question: ${question}`);
-    let getAnswerFromUser = readlineSync.question('Your answer: ');
-    if (typeof answer === 'number') {
-      getAnswerFromUser = Number(getAnswerFromUser);
-    }
+    const getAnswerFromUser = readlineSync.question('Your answer: ');
     if (getAnswerFromUser === answer) {
       console.log('Correct!');
-      correctAnswers += 1;
     } else {
+      allRightAnswers = false;
       console.log(`${getAnswerFromUser} is wrong answer ;(. Correct answer was ${answer}.`);
       console.log(`Let's try again, ${userName}!`);
       break;
     }
   }
-
-  if (correctAnswers >= 3) {
+  if (allRightAnswers) {
     console.log(`Congratulations, ${userName}!`);
   }
 }

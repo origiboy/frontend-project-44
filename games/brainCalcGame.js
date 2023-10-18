@@ -1,30 +1,30 @@
-import { gameStart, gameRounds } from '../src/index.js';
+import game from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
+
+const rules = 'What is the result of the expression?';
+
+function calculate(operator, numberFirst, numberSecond) {
+  switch (operator) {
+    case '*':
+      return numberFirst * numberSecond;
+    case '-':
+      return numberFirst - numberSecond;
+    case '+':
+      return numberFirst + numberSecond;
+    default:
+      throw new Error('Неизвестный оператор');
+  }
+}
 
 function brainCalcGameRounds() {
   const operators = ['*', '-', '+'];
   const randomOperatorIndex = getRandomNumberBetween(0, 2);
   const randomNumberFirst = getRandomNumberBetween(0, 50);
   const randomNumberSecond = getRandomNumberBetween(0, 50);
-  let result = 0;
-  switch (randomOperatorIndex) {
-    case 0:
-      result = randomNumberFirst * randomNumberSecond;
-      break;
-    case 1:
-      result = randomNumberFirst - randomNumberSecond;
-      break;
-    case 2:
-      result = randomNumberFirst + randomNumberSecond;
-      break;
-    default:
-      result = randomNumberFirst * randomNumberSecond;
-      break;
-  }
-  return { question: `${randomNumberFirst} ${operators[randomOperatorIndex]} ${randomNumberSecond}`, answer: result };
+  const result = calculate(operators[randomOperatorIndex], randomNumberFirst, randomNumberSecond);
+  return { question: `${randomNumberFirst} ${operators[randomOperatorIndex]} ${randomNumberSecond}`, answer: result.toString() };
 }
 
 export default function brainEvenGame() {
-  gameStart('What is the result of the expression?');
-  gameRounds(brainCalcGameRounds);
+  game(brainCalcGameRounds, rules);
 }

@@ -1,24 +1,29 @@
-import { gameStart, gameRounds } from '../src/index.js';
+import game from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
+
+const rules = 'What number is missing in the progression?';
+const progressionLengthDefault = 10;
+
+function generateProgression(firstNumber, dx, progressionLength) {
+  const sequence = [];
+  for (let i = 0; i < progressionLength; i += 1) {
+    sequence.push(firstNumber + dx * i);
+  }
+  return sequence;
+}
 
 function brainProgressionGameRounds() {
   const randomFirstNumber = getRandomNumberBetween(1, 30);
   const randomDx = getRandomNumberBetween(2, 10);
-  const randomIndex = getRandomNumberBetween(0, 9);
-  const sequence = [];
-  let result = 0;
-  for (let i = 0; i < 10; i += 1) {
-    if (i !== randomIndex) {
-      sequence.push(randomFirstNumber + randomDx * i);
-    } else {
-      sequence.push('..');
-      result = randomFirstNumber + randomDx * i;
-    }
-  }
+  const randomIndex = getRandomNumberBetween(0, progressionLengthDefault - 1);
+
+  const sequence = generateProgression(randomFirstNumber, randomDx, progressionLengthDefault);
+  const result = sequence[randomIndex];
+  sequence[randomIndex] = '..';
+
   return { question: `${sequence.join(' ')}`, answer: result };
 }
 
 export default function brainEvenGame() {
-  gameStart('What number is missing in the progression?');
-  gameRounds(brainProgressionGameRounds);
+  game(brainProgressionGameRounds, rules);
 }

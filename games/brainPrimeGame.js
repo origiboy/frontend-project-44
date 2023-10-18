@@ -1,5 +1,7 @@
-import { gameStart, gameRounds } from '../src/index.js';
+import game from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
+
+const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 function isPrime(num) {
   for (let i = 2, s = Math.sqrt(num); i <= s; i += 1) {
@@ -15,6 +17,5 @@ function brainProgressionGameRounds() {
 }
 
 export default function brainEvenGame() {
-  gameStart('Answer "yes" if given number is prime. Otherwise answer "no".');
-  gameRounds(brainProgressionGameRounds);
+  game(brainProgressionGameRounds, rules);
 }
