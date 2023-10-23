@@ -1,4 +1,4 @@
-import game from '../src/index.js';
+import generateGame from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
 
 const rules = 'Answer "yes" if the number is even, otherwise answer "no".';
@@ -8,11 +8,11 @@ function isEven(number) {
   return false;
 }
 
-function brainEvenGameRounds() {
+function generateRound() {
   const randomNumber = getRandomNumberBetween(0, 200);
-  return { question: randomNumber, answer: isEven(randomNumber) ? 'yes' : 'no' };
+  return { question: String(randomNumber), answer: isEven(randomNumber) ? 'yes' : 'no' };
 }
 
 export default function brainEvenGame() {
-  game(brainEvenGameRounds, rules);
+  generateGame(generateRound, rules);
 }

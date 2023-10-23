@@ -1,4 +1,4 @@
-import game from '../src/index.js';
+import generateGame from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
 
 const rules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
@@ -10,12 +10,12 @@ function isPrime(num) {
   return num > 1;
 }
 
-function brainProgressionGameRounds() {
+function generateRound() {
   const randomFirstNumber = getRandomNumberBetween(2, 100);
   const result = isPrime(randomFirstNumber) ? 'yes' : 'no';
-  return { question: `${randomFirstNumber}`, answer: result };
+  return { question: String(randomFirstNumber), answer: result };
 }
 
 export default function brainEvenGame() {
-  game(brainProgressionGameRounds, rules);
+  generateGame(generateRound, rules);
 }

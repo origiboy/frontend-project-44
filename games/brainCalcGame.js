@@ -1,4 +1,4 @@
-import game from '../src/index.js';
+import generateGame from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
 
 const rules = 'What is the result of the expression?';
@@ -16,7 +16,7 @@ function calculate(operator, numberFirst, numberSecond) {
   }
 }
 
-function brainCalcGameRounds() {
+function generateRound() {
   const operators = ['*', '-', '+'];
   const randomOperatorIndex = getRandomNumberBetween(0, 2);
   const randomNumberFirst = getRandomNumberBetween(0, 50);
@@ -25,6 +25,6 @@ function brainCalcGameRounds() {
   return { question: `${randomNumberFirst} ${operators[randomOperatorIndex]} ${randomNumberSecond}`, answer: result.toString() };
 }
 
-export default function brainEvenGame() {
-  game(brainCalcGameRounds, rules);
+export default function brainCalculateGame() {
+  generateGame(generateRound, rules);
 }

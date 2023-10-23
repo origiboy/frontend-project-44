@@ -1,4 +1,4 @@
-import game from '../src/index.js';
+import generateGame from '../src/index.js';
 import getRandomNumberBetween from '../src/utils.js';
 
 const rules = 'Find the greatest common divisor of given numbers.';
@@ -10,7 +10,7 @@ function gcd(a, b) {
   return gcd(b, a % b);
 }
 
-function brainGcdGameRounds() {
+function generateRound() {
   const randomNumberFirst = getRandomNumberBetween(0, 100);
   const randomNumberSecond = getRandomNumberBetween(0, 100);
   const gcdNumber = gcd(randomNumberFirst, randomNumberSecond);
@@ -18,5 +18,5 @@ function brainGcdGameRounds() {
 }
 
 export default function brainEvenGame() {
-  game(brainGcdGameRounds, rules);
+  generateGame(generateRound, rules);
 }
