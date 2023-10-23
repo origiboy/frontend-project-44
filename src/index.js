@@ -19,4 +19,5 @@ export default function generateGame(generateRound, rules) {
       return;
     }
   }
+  console.log(`Congratulations, ${userName}!`);
 }
